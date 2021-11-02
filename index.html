@@ -86,39 +86,39 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="a11"><br>
+                                <input id="a11" type="text" class="form-control" placeholder="a11"><br>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="a12"><br>
+                                <input id="a12" type="text" class="form-control" placeholder="a12"><br>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="a13"><br>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="a21"><br>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="a22"><br>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="a23"><br>
+                                <input id="a13" type="text" class="form-control" placeholder="a13"><br>
                             </div>
                         </div>
                     </div>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="a31"><br>
+                                <input id="a21" type="text" class="form-control" placeholder="a21"><br>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="a32"><br>
+                                <input id="a22" type="text" class="form-control" placeholder="a22"><br>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="a33"><br>
+                                <input id="a23" type="text" class="form-control" placeholder="a23"><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input id="a31" type="text" class="form-control" placeholder="a31"><br>
+                            </div>
+                            <div class="col-md-4">
+                                <input id="a32" type="text" class="form-control" placeholder="a32"><br>
+                            </div>
+                            <div class="col-md-4">
+                                <input id="a33" type="text" class="form-control" placeholder="a33"><br>
                             </div>
                         </div>
                     </div>
@@ -126,7 +126,8 @@
                     <!-- Rodapé do modal-->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Calcular o Determinante</button>
+                        <button type="button" class="btn btn-primary"
+                            onclick="calculaDeterminanteDeMatrizTeste()">Calcular o Determinante</button>
                         <button type="button" class="btn btn-primary">Calcular o Sistema</button>
                     </div>
 
@@ -148,9 +149,9 @@
 </body>
 
 <script>
-    let x1 = 1, y1 = 2, z1 = 1, i1 = 7, x2 = 2, y2 = 7, z2 = 1, i2 = 21, x3 = -3, y3 = -5, z3 = 2, i3 = -8;
+    //let x1 = 1, y1 = 2, z1 = 1, i1 = 7, x2 = 2, y2 = 7, z2 = 1, i2 = 21, x3 = -3, y3 = -5, z3 = 2, i3 = -8;
 
-    calculaSistemaComTresElementos(x1, y1, z1, i1, x2, y2, z2, i2, x3, y3, z3, i3);
+    //calculaSistemaComTresElementos(x1, y1, z1, i1, x2, y2, z2, i2, x3, y3, z3, i3); 
 
     function calculaSistemaComTresElementos(x1, y1, z1, i1, x2, y2, z2, i2, x3, y3, z3, i3) {
         let _x1 = x1 || 0;
@@ -206,6 +207,31 @@
 
     function calculaZ(determinateDeMatrizZ, determinateDeMatriz) {
         return determinateDeMatrizZ / determinateDeMatriz;
+    }
+
+    function calculaDeterminanteDeMatrizTeste() {
+        let input = document.getElementById("a11");
+        let x1 = input.value;
+        input = document.getElementById("a21");
+        let x2 = input.value;
+        input = document.getElementById("a31");
+        let x3 = input.value;
+        input = document.getElementById("a12");
+        let y1 = input.value;
+        input = document.getElementById("a22");
+        let y2 = input.value;
+        input = document.getElementById("a32");
+        let y3 = input.value;
+        input = document.getElementById("a13");
+        let z1 = input.value;
+        input = document.getElementById("a23");
+        let z2 = input.value;
+        input = document.getElementById("a33");
+        let z3 = input.value;
+
+        var resultado = (x1 * y2 * z3) + (y1 * z2 * x3) + (z1 * x2 * y3) - 1 * (x3 * y2 * z1) - 1 * (y3 * z2 * x1) - 1 * (z3 * x2 * y1);
+        alert("O determinante é: "+resultado);
+        //return (x1 * y2 * z3) + (y1 * z2 * x3) + (z1 * x2 * y3) - 1 * (x3 * y2 * z1) - 1 * (y3 * z2 * x1) - 1 * (z3 * x2 * y1);
     }
 </script>
 
