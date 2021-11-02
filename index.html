@@ -126,9 +126,38 @@
                     <!-- Rodapé do modal-->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary"
-                            onclick="calculaDeterminanteDeMatrizTeste()">Calcular o Determinante</button>
+                        <button type="button" class="btn btn-primary" onclick="calculaDeterminanteDeMatrizTeste()"
+                            data-toggle="modal" data-target="#result">Calcular o Determinante</button>
                         <button type="button" class="btn btn-primary">Calcular o Sistema</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Modal -->
+     <div id="result" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Conteúdo do modal-->
+            <div class="modal-content">
+                <!-- Cabeçalho do modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Determinate</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Corpo do modal -->
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                           <p>O resultado é: </p> <p id="resultado"></p> 
+                        </div>
+                    </div>
+
+                    <!-- Rodapé do modal-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                     </div>
 
                 </div>
@@ -230,8 +259,8 @@
         let z3 = input.value;
 
         var resultado = (x1 * y2 * z3) + (y1 * z2 * x3) + (z1 * x2 * y3) - 1 * (x3 * y2 * z1) - 1 * (y3 * z2 * x1) - 1 * (z3 * x2 * y1);
-        alert("O determinante é: "+resultado);
         //return (x1 * y2 * z3) + (y1 * z2 * x3) + (z1 * x2 * y3) - 1 * (x3 * y2 * z1) - 1 * (y3 * z2 * x1) - 1 * (z3 * x2 * y1);
+        document.getElementById('resultado').innerHTML = resultado;
     }
 </script>
 
